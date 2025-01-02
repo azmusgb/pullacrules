@@ -49,7 +49,12 @@ namespace FwdProcessor
         private static ServiceProvider ConfigureServices()
         {
             return new ServiceCollection()
-                .AddLogging(configure => configure.AddConsole().SetMinimumLevel(LogLevel.Debug))
+                .AddLogging(configure =>
+                {
+                    configure.AddConsole();
+                    configure.AddFile("Logs/fwdprocessor-{Date}.log"); // File-based logging
+                    configure.SetMinimumLevel(LogLevel.Debug);
+                })
                 .AddSingleton<Catalog>()
                 .AddSingleton<PullACRules>()
                 .BuildServiceProvider();
