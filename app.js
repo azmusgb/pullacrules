@@ -1,10 +1,18 @@
 document.getElementById('processButton').addEventListener('click', async () => {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
-    fileInput.accept = '.cfd'; // Allow .cfd files
+    fileInput.accept = '.cfd'; // Allow only .cfd files
     fileInput.onchange = async () => {
         const file = fileInput.files[0];
-        if (!file) return;
+        if (!file) {
+            alert('No file selected!');
+            return;
+        }
+
+        if (file.name.split('.').pop().toLowerCase() !== 'cfd') {
+            alert('Only .cfd files are allowed!');
+            return;
+        }
 
         const formData = new FormData();
         formData.append('file', file);
@@ -31,10 +39,3 @@ document.getElementById('processButton').addEventListener('click', async () => {
 
     fileInput.click();
 });
-
-// Register Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log('Service Worker Registered'))
-        .catch(err => console.error('Service Worker Registration Failed:', err));
-}
