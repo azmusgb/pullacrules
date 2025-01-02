@@ -3,7 +3,7 @@
   <PropertyGroup>  
     <EnableWindowsTargeting>true</EnableWindowsTargeting> <!-- Enable Windows targeting for building on non-Windows OS -->
     <OutputType>WinExe</OutputType> <!-- Specifies that this is a Windows executable -->
-    <TargetFramework>net8.0-windows</TargetFramework> <!-- Targeting .NET 8 for Windows -->
+    <TargetFramework>net7.2-windows</TargetFramework> <!-- Targeting .NET 8 for Windows -->
     <Nullable>enable</Nullable> <!-- Enables nullable reference types -->
     <UseWindowsForms>true</UseWindowsForms> <!-- Indicates that this project uses Windows Forms -->
   </PropertyGroup>
