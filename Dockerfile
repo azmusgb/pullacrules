@@ -5,7 +5,7 @@ EXPOSE 80
 EXPOSE 443
 
 # Use the .NET SDK image to build the application
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.2 AS build
 WORKDIR /src
 COPY . .
 RUN dotnet publish -c Release -o /app/build
