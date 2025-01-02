@@ -1,7 +1,7 @@
 document.getElementById('processButton').addEventListener('click', async () => {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
-    fileInput.accept = '.fwd';
+    fileInput.accept = '.cfd'; // Allow .cfd files
     fileInput.onchange = async () => {
         const file = fileInput.files[0];
         if (!file) return;
