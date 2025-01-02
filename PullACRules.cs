@@ -1,7 +1,5 @@
 using System;
-using System.Data;
 using System.IO;
-using Newtonsoft.Json;
 using Microsoft.Extensions.Logging;
 using FormWorks.Core;
 using rri.Base;
@@ -31,8 +29,9 @@ namespace FwdProcessor
 
             try
             {
-                Console.WriteLine($"Processing file: {args[0]}");
+                _logger.LogInformation("Processing file: {FileName}", args[0]);
                 using var fwd = new Fwd(args[0]);
+                _logger.LogInformation("FWD file initialized successfully.");
 
                 LogFWDAttributes(fwd);
                 ProcessDocuments(fwd);
@@ -51,7 +50,7 @@ namespace FwdProcessor
                 var releaseNumber = fwd.GetFWDAttributes().GetInt("LastReleaseNumber");
                 var releaseDate = fwd.GetFWDAttributes().GetString("ReleaseDateString");
 
-                Console.WriteLine($"Release Number: {releaseNumber}, Release Date: {releaseDate}");
+                _logger.LogInformation("Release Number: {ReleaseNumber}, Release Date: {ReleaseDate}", releaseNumber, releaseDate);
             }
             catch (Exception ex)
             {
@@ -64,11 +63,11 @@ namespace FwdProcessor
             try
             {
                 var documentNames = fwd.GetDocumentNames();
-                Console.WriteLine($"Found {documentNames.Length} documents.");
+                _logger.LogInformation("Found {DocumentCount} documents.", documentNames.Length);
 
                 foreach (var docName in documentNames)
                 {
-                    Console.WriteLine($"Processing document: {docName}");
+                    _logger.LogInformation("Processing document: {DocumentName}", docName);
                     ProcessPages(fwd, docName);
                 }
             }
@@ -83,8 +82,11 @@ namespace FwdProcessor
             try
             {
                 var pages = fwd.GetPagesInDoc(docName);
+                _logger.LogInformation("Found {PageCount} pages in document: {DocumentName}", pages.Length, docName);
+
                 foreach (var page in pages)
                 {
+                    _logger.LogInformation("Processing page: {PageName}", page);
                     ProcessPageConfig(fwd, page);
                 }
             }
@@ -96,7 +98,15 @@ namespace FwdProcessor
 
         private void ProcessPageConfig(Fwd fwd, string pageName)
         {
-            // Process configuration logic here
+            try
+            {
+                _logger.LogInformation("Processing configuration for page: {PageName}", pageName);
+                // Add configuration processing logic here
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing page configuration: {PageName}", pageName);
+            }
         }
     }
 }
