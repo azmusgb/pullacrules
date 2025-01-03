@@ -1,5 +1,5 @@
 # Use a specific version of the .NET SDK
-FROM mcr.microsoft.com/dotnet/sdk:7.0.100 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 
 # Copy the `src` directory and its content
@@ -7,7 +7,7 @@ COPY src/ src/
 RUN dotnet publish src/NewPullACRules.csproj -c Release -o /app/build
 
 # Use the ASP.NET runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:7.0.100 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base  # Changed to 7.0
 WORKDIR /app
 
 # Copy the published output from the build stage
