@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWA Hosted on Netlify</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="styles.css">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Upload your CFD files for processing.">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
 </head>
 <body>
-    <h1>Welcome to the PWA</h1>
-    <button id="processButton">Start Processing</button>
-    <p id="status">Status: Ready</p>
+    <h1>Upload Your CFD File</h1>
+    <input type="button" id="processButton" value="Upload File" aria-label="Upload CFD File">
+    <div id="status">Status: Waiting for upload...</div>
     <script src="app.js"></script>
 </body>
 </html>
