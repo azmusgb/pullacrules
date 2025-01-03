@@ -8,13 +8,11 @@ using rri.fwd;
 namespace FwdProcessor
 {
     public class PullACRules
-    {
-        private readonly Catalog _catalog;
+
         private readonly ILogger<PullACRules> _logger;
 
         public PullACRules(Catalog catalog, ILogger<PullACRules> logger)
         {
-            _catalog = catalog;
             _logger = logger;
         }
 
