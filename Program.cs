@@ -1,8 +1,7 @@
-using System;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace FwdProcessor
+namespace YourNamespace
 {
     class Program
     {
@@ -20,29 +19,11 @@ namespace FwdProcessor
 
             try
             {
-                if (args.Length == 0)
-                {
-                    Console.WriteLine("No arguments provided.");
-                    Console.Write("Please enter the path to the FWD file: ");
-                    var inputPath = Console.ReadLine();
-
-                    if (string.IsNullOrEmpty(inputPath) || !System.IO.File.Exists(inputPath))
-                    {
-                        Console.WriteLine("Error: Invalid file path provided. Exiting.");
-                        return;
-                    }
-
-                    args = new[] { inputPath };
-                }
-
-                Console.WriteLine("Starting processing...");
                 pullACRules.Process(args);
-                Console.WriteLine("Processing completed successfully.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Unexpected error: {ex.Message}");
-                Console.WriteLine("Processing aborted. Check the logs for more details.");
             }
         }
 
@@ -52,8 +33,7 @@ namespace FwdProcessor
                 .AddLogging(configure =>
                 {
                     configure.AddConsole();
-                    configure.AddFile("Logs/fwdprocessor-{Date}.log"); // File-based logging
-                    configure.SetMinimumLevel(LogLevel.Debug);
+                    configure.AddFile("Logs/fwdprocessor-{Date}.log");
                 })
                 .AddSingleton<PullACRules>()
                 .BuildServiceProvider();
