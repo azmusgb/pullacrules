@@ -55,7 +55,6 @@ namespace FwdProcessor
                     configure.AddFile("Logs/fwdprocessor-{Date}.log"); // File-based logging
                     configure.SetMinimumLevel(LogLevel.Debug);
                 })
-                .AddSingleton<Catalog>()
                 .AddSingleton<PullACRules>()
                 .BuildServiceProvider();
         }
