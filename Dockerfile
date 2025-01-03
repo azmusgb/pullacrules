@@ -7,7 +7,7 @@ COPY src/ src/
 RUN dotnet publish src/NewPullACRules.csproj -c Release -o /app/build
 
 # Use the ASP.NET runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base  # Changed to 7.0
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
 
 # Copy the published output from the build stage
