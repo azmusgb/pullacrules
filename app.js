@@ -14,7 +14,7 @@ document.getElementById('processButton').addEventListener('click', async () => {
             return;
         }
 
-        const formData = new FormData();
+ const formData = new FormData();
         formData.append('file', file);
 
         document.getElementById('status').innerText = 'Status: Uploading and Processing...';
