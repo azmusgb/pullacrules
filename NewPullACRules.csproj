@@ -18,39 +18,39 @@
 
   <ItemGroup>
     <Reference Include="FormWorks.Core">
-      <HintPath>dlls\Assembly\FormWorks.Core.dll</HintPath>
+      <HintPath>libs\FormWorks.Core.dll</HintPath>
     </Reference>
     <Reference Include="rriapputil_net">
-      <HintPath>dlls\Assembly\rriapputil_net.dll</HintPath>
+      <HintPath>libs\rriapputil_net.dll</HintPath>
     </Reference>
     <Reference Include="rribase_net">
-      <HintPath>dlls\Assembly\rribase_net.dll</HintPath>
+      <HintPath>libs\rribase_net.dll</HintPath>
     </Reference>
     <Reference Include="rridc_net">
-      <HintPath>dlls\Assembly\rridc_net.dll</HintPath>
+      <HintPath>libs\rridc_net.dll</HintPath>
     </Reference>
     <Reference Include="rrifwd_net">
-      <HintPath>dlls\Assembly\rrifwd_net.dll</HintPath>
+      <HintPath>libs\rrifwd_net.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="dlls\Assembly\FormWorks.Core.dll">
+    <None Update="libs\FormWorks.Core.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="dlls\Assembly\rriapputil_net.dll">
+    <None Update="libs\rriapputil_net.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="dlls\Assembly\rribase_net.dll">
+    <None Update="libs\rribase_net.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="dlls\Assembly\rridc_net.dll">
+    <None Update="libs\rridc_net.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="dlls\Assembly\rrifwd_net.dll">
+    <None Update="libs\rrifwd_net.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="dlls\Core\Newtonsoft.Json.dll">
+    <None Update="libs\Newtonsoft.Json.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
